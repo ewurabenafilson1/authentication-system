@@ -6,6 +6,9 @@
         public string Password { get; set; }
         public string Email { get; set; }
 
+        public User() { }
+        //for serialization and des
+
         public User(string username, string password, string email)
         {
             Username = username;

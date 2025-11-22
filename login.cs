@@ -1,8 +1,10 @@
- namespace authenticationSystem
+using System.Reflection.Metadata;
+
+namespace authenticationSystem
 {
     public class Login
     {
-        public static void PerformLogin()
+        public static void PerformLogin(List<User> users )
         {
             Console.WriteLine("Login to your account");
             Console.Write("Enter username: ");
@@ -11,10 +13,15 @@
             Console.Write("Enter password: ");
             string password = Console.ReadLine()!;
 
-            // Here you would typically verify the user details from a database
-            Console.WriteLine("Login successful!");
-        }
-    }
+            foreach(User user in users)
+            {
+             if (user.Username.ToLower() == username.ToLower() && user.Password.ToLower() == password.ToLower())
+                {
+                    Console.WriteLine($"\n✅ Login successful! Welcome, {user.Username}.\n");
+                }   
+            }
 
-    
+            Console.WriteLine("\n❌ Login failed! Invalid username or password.\n");
+        }
+    }   
 }
