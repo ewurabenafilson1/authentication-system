@@ -15,11 +15,12 @@ namespace authenticationSystem
             string choice = Console.ReadLine()!;
             if (choice == "1")
             {
-                Login.PerformLogin();
+                List<User> users = Register.LoadUsers();
+                Login.PerformLogin(users);
             }
             else if (choice == "2")
             {
-               Register.PerformRegistration();
+                Register.PerformRegistration();
             }
             else
             {
